@@ -1,0 +1,10 @@
+.popup__form-error {
+    position: absolute;
+    top: 27px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #f00;
+    max-width: 100%;
+}

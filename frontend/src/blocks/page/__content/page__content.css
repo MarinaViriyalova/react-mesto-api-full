@@ -1,0 +1,6 @@
+.page__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 918px;
+    width: 100%;
+}

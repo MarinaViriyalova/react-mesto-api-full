@@ -1,0 +1,44 @@
+{
+    "name": "express-mesto",
+    "version": "1.0.0",
+    "description": "## Директории",
+    "main": "app.js",
+    "scripts": {
+        "lint": "npx eslint .",
+        "start": "node app.js",
+        "dev": "nodemon app.js",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MarinaViriyalova/express-mesto.git"
+    },
+    "keywords": [],
+    "author": "Marina Viriyalova",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MarinaViriyalova/express-mesto/issues"
+    },
+    "homepage": "https://github.com/MarinaViriyalova/express-mesto#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.1",
+        "celebrate": "^15.0.1",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "express": "^4.17.2",
+        "express-winston": "^4.2.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.2.0",
+        "validator": "^13.7.0",
+        "winston": "^3.5.1"
+    },
+    "devDependencies": {
+        "eslint": "^8.8.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.4",
+        "jest": "^27.4.7",
+        "nodemon": "^2.0.15",
+        "supertest": "^6.2.2"
+    }
+}
