@@ -30,9 +30,6 @@ export const authorize = (password, email) => {
             body: JSON.stringify({ password, email })
         })
         .then(res => handleResponse(res))
-        .then((data) => {
-            return data;
-        })
 };
 
 
