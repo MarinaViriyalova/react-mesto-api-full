@@ -1,8 +1,6 @@
-/* eslint-disable consistent-return */
 const allowedCors = [
     'http://localhost:3000',
-    'https://viriyalova-mesto.nomoredomains.work',
-    'http://viriyalova-mesto.nomoredomains.work'
+    'https://viriyalova-mesto.nomoredomains.work'
 ];
 
 module.exports = (req, res, next) => {
@@ -11,6 +9,8 @@ module.exports = (req, res, next) => {
     const requestHeaders = req.headers['access-control-request-headers'];
 
     const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
+    console.log('1111', origin);
 
     if (allowedCors.includes(origin)) {
         res.header('Access-Control-Allow-Origin', origin);
