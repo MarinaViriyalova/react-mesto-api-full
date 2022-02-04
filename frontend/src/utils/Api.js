@@ -18,13 +18,16 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
     }
 
-    getUserInfo() {
+    getUserInfo = () => {
         return fetch(`${this._baseUrl}/users/me`, {
-                method: 'GET',
-                headers: this._headers
-            })
-            .then(res => this._handleResponse(res))
-    }
+            method: "GET",
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json",
+            },
+        }).then(res => this._handleResponse(res))
+    };
 
     editUserInfo(data) {
         return fetch(`${this._baseUrl}/users/me`, {
