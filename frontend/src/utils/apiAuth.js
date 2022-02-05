@@ -5,6 +5,14 @@ function handleResponse(res) {
     return Promise.reject(`Ошибка: ${res.status}`);
 }
 
+const handleToken = (token) => {
+    if (token) {
+        localStorage.setItem('jwt', token);
+    } else {
+        console.error('No token');
+    }
+};
+
 
 export const register = (password, email) => {
     return fetch(`${BASE_URL}/signup`, {
@@ -30,9 +38,7 @@ export const authorize = (password, email) => {
             body: JSON.stringify({ password, email })
         })
         .then(res => handleResponse(res))
-        .then((data) => {
-            return data;
-        })
+        .then((data) => handleToken(data ? data.token : null))
 };
 
 

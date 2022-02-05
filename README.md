@@ -3,6 +3,6 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-FRONT: http://viriyalova-mesto.nomoredomains.work
+FRONT: https://viriyalova-mesto.nomoredomains.work
 
-API: http://api.viriyalova-mesto.nomoredomains.work
+API: https://api.viriyalova-mesto.nomoredomains.work

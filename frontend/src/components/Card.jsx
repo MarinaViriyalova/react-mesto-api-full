@@ -7,7 +7,7 @@ export default function Card(props) {
 
   return (
     <li className="element">
-      {(props.card.owner._id === currentUser._id) &&
+      {(props.card.owner === currentUser._id) &&
         <button
           type="button"
           className="element__delete-button"
