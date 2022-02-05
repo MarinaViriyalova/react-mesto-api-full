@@ -1,6 +1,7 @@
 const allowedCors = [
     'http://localhost:3000',
-    'https://viriyalova-mesto.nomoredomains.work'
+    'https://viriyalova-mesto.nomoredomains.work',
+    'http://viriyalova-mesto.nomoredomains.work'
 ];
 
 module.exports = (req, res, next) => {
