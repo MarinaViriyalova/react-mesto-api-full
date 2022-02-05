@@ -27,27 +27,30 @@ function App() {
   const [isCardDeleteConfirmOpen, setIsCardDeleteConfirmOpen] = useState({isOpen: false, cardToDelete: {}});
   const [selectedCard, setSelectedCard] = useState({isOpen: false, data: {}})
   const [currentUser, setCurrentUser] = useState({});
-  const [userData, setUserData] = useState({});
   const [cards, setCards] = useState([]);
   const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = useState({isOpen: false, isSuccess: true});
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isCurrentUserId = currentUser && currentUser._id; 
 
 
   useEffect(() => {
     tokenCheck()
-  }, [])
+  }, []);
+
 
   useEffect(() => {
-    Promise.all([
-      api.getInitialCards(),
-      api.getUserInfo()
-    ])
-      .then(([cards, user]) => {
-        setCards(cards);
-        setCurrentUser(user);
-      })
+    api.getUserInfo()
+      .then(user => setCurrentUser(user))
       .catch(error => console.log(error))
-  }, [])
+}, [isCurrentUserId]);
+
+useEffect(() => {
+  if(currentUser && currentUser._id) {
+    api.getInitialCards()
+      .then(cards => setCards(cards))
+      .catch(error => console.log(error));
+  }
+}, [currentUser]);
 
   useEffect(() => {
     const closeByEscape = (event) => {
@@ -136,7 +139,7 @@ function App() {
       apiAuth.getContent(jwt)
         .then(res => {
           setIsLoggedIn(true);
-          setUserData({...res.data})
+          setCurrentUser({...res.data})
           history.push("/")
         })
         .catch(error => {
@@ -149,6 +152,9 @@ function App() {
 
   function signOut() {
     localStorage.removeItem('jwt');
+    setIsLoggedIn(false);
+    setCurrentUser({});
+    setCards([]);
     history.push('/login');
   }
 
@@ -179,7 +185,7 @@ function App() {
       <div className="page__content">
         <CurrentUserContext.Provider value = {currentUser}>
 
-          <Header onSignOut = {signOut} userData = {userData}/>
+          <Header onSignOut = {signOut} userData = {currentUser}/>
 
           <Switch>
 
